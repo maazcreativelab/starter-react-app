@@ -111,6 +111,12 @@ export default function AdminAside() {
                       <p>View Customer</p>
                     </Link>
                   </li>
+                  <li className="nav-item">
+                    <Link to="/admin/addCustomer" className="nav-link">
+                      <i className="nav-icon fas fa-columns" />
+                      <p>Add Customer</p>
+                    </Link>
+                  </li>
                 </ul>
               </nav>
             </div>

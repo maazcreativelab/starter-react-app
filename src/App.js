@@ -19,6 +19,7 @@ import AssignOrder from './components/admin/AssignOrder';
 import ViewCustomers from './components/admin/ViewCustomers';
 import EditOrder from './components/admin/EditOrder';
 import EditDigitizer from './components/admin/EditDigitizer';
+import AddCustomer from './components/admin/AddCustomer';
 
 
 export const ROLES = {
@@ -50,6 +51,7 @@ function App() {
           <Route path='viewDigitizer' element={<ViewDigitizers></ViewDigitizers>}></Route>
           <Route path='editDigitizer/:id' element={<EditDigitizer></EditDigitizer>}></Route>
           <Route path='viewCustomer' element={<ViewCustomers/>}></Route>
+          <Route path='addCustomer' element={<AddCustomer/>}></Route>
           <Route path="orders">
             <Route index element={<AdminViewOrder></AdminViewOrder>} />
             {/*<Route path=":id" element={<EditUser />} />*/}

@@ -132,7 +132,7 @@ export default function AssignOrder() {
         );
         console.log(response.data);
         // isMounted && setUsers(response.data);
-        isMounted && navigate('/customer/orders/');
+        isMounted && navigate('/admin/orders/');
       } catch (err) {
         console.error(err);
         navigate('/login', { state: { from: location }, replace: true });

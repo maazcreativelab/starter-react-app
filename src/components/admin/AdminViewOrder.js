@@ -175,10 +175,10 @@ export default function ViewOrder() {
                   <td><Link to={`/admin/orders/edit/${order.id}`}><EditFilled style={{ fontSize: '25px', color: '#023047' }} /></Link></td>
                   <span className="text">Edit Order</span>
                   </div>
-                  <div className="icon-container" >
+                  {/*<div className="icon-container" >
                   <td><Link to={`/admin/orders/assign/${order.id}`}><TagFilled style={{ fontSize: '25px', color: '#9b2226' }} /> </Link></td>
                   <span className="text">Assign Order</span>
-                  </div>
+                  </div>*/}
 
                    {/*<td>{order?.design_placement.replace(/[\[\]"]/g, '')}</td>
                   <td> 

@@ -43,7 +43,7 @@ function App() {
           </Route>
         </Route>
       </Route>
-       <Route element={<RequireAuth allowedRoles={ROLES.Admin}></RequireAuth>}> */}
+       <Route element={<RequireAuth allowedRoles={ROLES.Admin}></RequireAuth>}> 
         <Route path="admin" element={<AdminDashLayout />}>
           <Route index element={<Main></Main>}></Route>
           <Route path='settings' element={<Setting></Setting>}></Route>

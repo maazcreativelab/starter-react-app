@@ -1,7 +1,7 @@
 import axios from '../api/axios';
 import React, { useState } from 'react';
 import useAuth from '../hooks/useAuth';
-import { useLocation, useNavigate,Link } from 'react-router-dom';
+import { useLocation, useNavigate, Link } from 'react-router-dom';
 import FormInput from './Utils/FormInput';
 
 export default function Register() {
@@ -68,26 +68,22 @@ export default function Register() {
     e.preventDefault();
 
     // let { email, password, username } = values;
-    const data = {...values,currencyType}
+    const data = { ...values, currencyType };
     let isMounted = true;
     const controller = new AbortController();
     const getOrders = async () => {
       // console.log("inside getorders function")
       e.preventDefault();
       try {
-        const response = await axios.post(
-          '/api/user/signup',
-           data,
-          {
-            headers: { 'Content-Type': 'application/json' },
-            withCredentials: true,
-          },
-        );
+        const response = await axios.post('/api/user/signup', data, {
+          headers: { 'Content-Type': 'application/json' },
+          withCredentials: true,
+        });
         const accessToken = response?.data?.accessToken;
         const roles = response?.data?.roles;
 
         setAuth({
-          email:response?.data?.email,
+          email: response?.data?.email,
           roles,
           accessToken,
           username: response?.data?.username,
@@ -97,8 +93,8 @@ export default function Register() {
         roles == 'admin' ? navigate('/admin') : navigate('/customer');
         // navigate(from, { replace: true });
       } catch (error) {
-        console.log(error);
-        setErrMsg(error);
+        console.log("error",error);
+        setErrMsg(error.response.data.error);
       }
     };
 
@@ -128,7 +124,7 @@ export default function Register() {
             >
               <div className="card-body text-white">
                 <h1 className="text-center">AA Creative EMB Customer Portal</h1>
-                <hr className='bg-light w-75' />
+                <hr className="bg-light w-75" />
                 <h3 className="text-center">Register Now !</h3>
                 <form
                   onSubmit={(e) => {
@@ -161,9 +157,28 @@ export default function Register() {
                   </div>
                   <div className="text-center my-4">
                     <button className="btn btn-primary w-50">Register</button>
-                    </div>
-                    <Link to={'/login'} className="my-4 text-center text-white font-weight-bolder d-block">Already have an Account</Link>
+                  </div>
+                  <Link
+                    to={'/login'}
+                    className="my-4 text-center text-white font-weight-bolder d-block"
+                  >
+                    Already have an Account
+                  </Link>
                 </form>
+                {errMsg && <div class="alert alert-danger alert-dismissible">
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="alert"
+                    aria-hidden="true"
+                  >
+                    ×
+                  </button>
+                  <h5>
+                    <i class="icon fas fa-ban"></i> Alert!
+                  </h5>
+                  {errMsg}
+                </div>}
               </div>
             </div>
           </div>
